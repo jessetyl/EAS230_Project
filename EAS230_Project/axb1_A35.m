@@ -12,9 +12,34 @@
 function [x, k] = axb1_A35(A,b,tol)   % Inputs A, b, and tolerance(e)
                                       % With outputs of solution vector(x) and
                                       % interations(k)
-                                 
+
 [num_row, num_col] = size(A);    % Obtain number of Columns and Rows or Matrix
-x = zeros(num_row,1);            % Initialize x
+if num_row ~= num_col            % Checks to see if matrix is square
+    error('Error:  The input matrix must be a square matrix')
+    return
+end
+if det(A) == 0      % Checks for singularity of matrix
+    error('Error:  This sytem may have no solution or infinitely many solutions. This function cannot be used to solve this system')
+    return
+end
+x = zeros(num_row,1);  % Initialize x
+
+
+% Checks for diagonally dominant matrix
+for i = 1:num_row
+    diag = 0;
+    for j = 1:num_col
+        if j == i
+            continue
+        end
+        diag = diag + abs(A(i,j));
+    end
+    if abs(A(i,i)) == diag
+        warning('Matrix A is not diagonally dominant. The solution obtained by this function may be incorrect')
+        break
+    end
+end
+
 
 % Calculate first iteration
 for i = 1:num_row
@@ -27,8 +52,13 @@ k = 1;    % Iteration number
 % Check error     
 err = norm(x(:,1));
 
+
 % Main Loop
-while tol < err              % If error is greater than tolerance, recalculate
+while tol < err      % If error is greater than tolerance, recalculate
+    if k > 1000      % If iterations exceed this number, program stops       
+        warning('The system has not converged in the allowable number of iterations')
+        return
+    end
 k = k+1;                       % Adds iteration
 x = [x zeros(num_row,1)];      % Initialize new column to zero
     for i = 1:num_row          % For earch x
