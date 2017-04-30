@@ -59,6 +59,7 @@ err = norm(r);
 while tol < err      % If error is greater than tolerance, recalculate
     if k > 1000      % If iterations exceed this number, program stops
         warning('The system has not converged in the allowable number of iterations')
+        x = x(:,k);     % Takes only the needed value
         return
     end
 k = k+1;                      % Adds iteration
