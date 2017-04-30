@@ -14,7 +14,7 @@ A = [-1 -t 0 0 0;...
 [num_row, num_col] = size(A);
 x = zeros(num_row,length(m));
  
-for i = length(m)
+for i = 1:length(m)
     b = [0; m(i)*g; 0; 0; 0];
     [x(:,i) k] = axb1_A35(A,b,tol);
 end

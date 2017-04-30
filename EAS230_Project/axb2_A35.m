@@ -69,7 +69,7 @@ x = [x zeros(num_row,1)];     % Initialize new column to zero
                 if j == i     % If j = i, then skip
                     continue
                 end
-                x(i,k) = x(i,k) + (-A(i,j)*x(i,k-1));    % Equation 3
+                x(i,k) = x(i,k) + (-A(i,j)*x(j,k-1));    % Equation 3
          end
          x(i,k) = (x(i,k)+b(i)) * (1/A(i,i));         % More equation 3
     end

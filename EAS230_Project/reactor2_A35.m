@@ -11,7 +11,7 @@ x = zeros(num_row,length(m));
 tol = 1e-4;
  
  % Calculation
- for i = length(m)
+ for i = 1:length(m)
      b = [-m(i); 0; -200];
      [x(:,i) k] = axb1_A35(A,b,tol);
  end
