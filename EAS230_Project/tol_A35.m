@@ -17,7 +17,7 @@ k2 = zeros(1,length(tol));
 % Calculations
 for i = 1:length(tol)
     [x1(:,i) k1(i)] = axb1_A35(A,b,tol(i));
-    [x2(:,i) k2(i)] = axb1_A35(A,b,tol(i));
+    [x2(:,i) k2(i)] = axb2_A35(A,b,tol(i));
 end
 
 % Graphing
@@ -26,4 +26,4 @@ loglog(tol,k1,tol,k2)
 title('Tolerance vs. Iterations')
 xlabel('Tolerance')
 ylabel('Iterations')
-grid on
+legend('axb1','axb2')
