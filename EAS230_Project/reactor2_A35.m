@@ -16,7 +16,7 @@ tol = 1e-4;
      [x(:,i) k] = axb1_A35(A,b,tol);
  end
  
- % Ploting
+ % Plotting
  figure(1)
  plot(m,x(1,:),m,x(2,:),m,x(3,:))
  title('Flow Rate vs. Concentration')

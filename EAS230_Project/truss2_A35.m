@@ -19,11 +19,10 @@ for i = 1:length(m)
     [x(:,i) k] = axb1_A35(A,b,tol);
 end
 
-% Ploting
+% Plotting
 figure(1)
 plot(m,x(1,:),m,x(2,:),m,x(3,:),m,x(4,:),m,x(5,:))
 title('Mass vs. Force')
-xlabel('Mass (mg/s)')
+xlabel('Mass (kg)')
 ylabel('Force (N)')
 legend('x1','x2','x3','x4','x5')
- 

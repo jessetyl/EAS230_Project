@@ -13,7 +13,7 @@ A = [-1 -t 0 0 0;...
      0 t 0 0 -t];
 b = [0; m*g; 0; 0; 0];
 
-[x1 k] = axb1_A35(A,b,tol);
-[x2 k] = axb2_A35(A,b,tol);
+[x1 k1] = axb1_A35(A,b,tol);
+[x2 k1] = axb2_A35(A,b,tol);
 
 [x1 x2]

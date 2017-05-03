@@ -1,17 +1,9 @@
 % Problem 1 Part b
 % axb2_A35
 
-% Temp Variables (Will be deleted later)
-% A = [10 -2 0 0;...
-%      3 -11 1 0;...
-%      0 0 8 -3;...
-%      0 2 1 -9;];
-% b = [3; -2; 0; 1];
-% tol = 1e-3;
-
 function [x, k] = axb2_A35(A,b,tol)  % Inputs A, b, and tolerance(e)
                                      % With outputs of solution vector(x) and
-                                     % interations(k), Uses diffrent error
+                                     % iterations(k), Uses different error
                                      % calculation method
                                  
 [num_row, num_col] = size(A);    % Obtain number of Columns and Rows or Matrix
@@ -20,7 +12,7 @@ if num_row ~= num_col            % Checks to see if matrix is square
     return
 end
 if det(A) == 0      % Checks for singularity of matrix
-    error('Error:  This sytem may have no solution or infinitely many solutions. This function cannot be used to solve this system')
+    error('Error:  This system may have no solution or infinitely many solutions. This function cannot be used to solve this system')
     return
 end
 x = zeros(num_row,1);    % Initialize x

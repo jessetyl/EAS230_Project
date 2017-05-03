@@ -20,7 +20,7 @@ for i = 1:length(tol)
     [x2(:,i) k2(i)] = axb2_A35(A,b,tol(i));
 end
 
-% Graphing
+% Plotting
 figure(1)
 loglog(tol,k1,tol,k2)
 title('Tolerance vs. Iterations')
